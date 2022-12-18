@@ -1,0 +1,10 @@
+﻿pynav.lib.camera.Camera
+=======================
+
+.. currentmodule:: pynav.lib.camera
+
+.. autoclass:: Camera
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

@@ -1,0 +1,6 @@
+pynav.utils.set\_axes\_equal
+============================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: set_axes_equal

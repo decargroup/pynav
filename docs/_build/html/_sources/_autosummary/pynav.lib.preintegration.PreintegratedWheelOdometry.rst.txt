@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.PreintegratedWheelOdometry
+===================================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: PreintegratedWheelOdometry
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

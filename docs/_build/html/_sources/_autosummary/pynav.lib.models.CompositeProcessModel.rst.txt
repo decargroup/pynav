@@ -1,0 +1,10 @@
+﻿pynav.lib.models.CompositeProcessModel
+======================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: CompositeProcessModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

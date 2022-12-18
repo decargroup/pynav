@@ -1,0 +1,10 @@
+pynav.utils.MonteCarloResult
+============================
+
+.. currentmodule:: pynav.utils
+
+.. autoclass:: MonteCarloResult
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

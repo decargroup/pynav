@@ -1,0 +1,6 @@
+pynav.imm.run\_interacting\_multiple\_model\_filter
+===================================================
+
+.. currentmodule:: pynav.imm
+
+.. autofunction:: run_interacting_multiple_model_filter

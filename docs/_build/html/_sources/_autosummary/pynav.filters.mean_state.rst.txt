@@ -1,0 +1,6 @@
+pynav.filters.mean\_state
+=========================
+
+.. currentmodule:: pynav.filters
+
+.. autofunction:: mean_state

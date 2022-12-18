@@ -1,0 +1,10 @@
+﻿pynav.lib.states.SE2State
+=========================
+
+.. currentmodule:: pynav.lib.states
+
+.. autoclass:: SE2State
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

@@ -1,0 +1,10 @@
+﻿pynav.lib.models.RelativeBodyFrameVelocity
+==========================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: RelativeBodyFrameVelocity
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

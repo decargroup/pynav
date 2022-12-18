@@ -1,0 +1,10 @@
+﻿pynav.filters.IteratedKalmanFilter
+==================================
+
+.. currentmodule:: pynav.filters
+
+.. autoclass:: IteratedKalmanFilter
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

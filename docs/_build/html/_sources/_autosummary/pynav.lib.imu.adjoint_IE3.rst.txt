@@ -1,0 +1,6 @@
+pynav.lib.imu.adjoint\_IE3
+==========================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autofunction:: adjoint_IE3

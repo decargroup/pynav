@@ -1,0 +1,10 @@
+﻿pynav.lib.models.LinearMeasurement
+==================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: LinearMeasurement
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

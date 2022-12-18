@@ -1,0 +1,10 @@
+﻿pynav.imm.InteractingModelFilter
+================================
+
+.. currentmodule:: pynav.imm
+
+.. autoclass:: InteractingModelFilter
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

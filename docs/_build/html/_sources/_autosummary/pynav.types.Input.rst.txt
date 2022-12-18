@@ -1,0 +1,10 @@
+﻿pynav.types.Input
+=================
+
+.. currentmodule:: pynav.types
+
+.. autoclass:: Input
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

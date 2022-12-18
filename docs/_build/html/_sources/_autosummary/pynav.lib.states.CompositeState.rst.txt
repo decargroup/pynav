@@ -1,0 +1,10 @@
+﻿pynav.lib.states.CompositeState
+===============================
+
+.. currentmodule:: pynav.lib.states
+
+.. autoclass:: CompositeState
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

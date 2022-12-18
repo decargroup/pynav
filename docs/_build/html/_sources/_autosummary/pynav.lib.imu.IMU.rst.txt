@@ -1,0 +1,10 @@
+﻿pynav.lib.imu.IMU
+=================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autoclass:: IMU
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

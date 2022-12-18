@@ -1,0 +1,6 @@
+pynav.lib.imu.delta\_matrix
+===========================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autofunction:: delta_matrix

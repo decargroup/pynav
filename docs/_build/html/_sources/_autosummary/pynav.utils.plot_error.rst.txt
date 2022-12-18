@@ -1,0 +1,6 @@
+pynav.utils.plot\_error
+=======================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: plot_error

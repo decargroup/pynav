@@ -1,0 +1,6 @@
+pynav.utils.jacobian
+====================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: jacobian

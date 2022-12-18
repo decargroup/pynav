@@ -1,0 +1,6 @@
+pynav.utils.monte\_carlo
+========================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: monte_carlo

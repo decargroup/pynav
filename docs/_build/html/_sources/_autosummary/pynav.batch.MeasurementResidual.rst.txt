@@ -1,0 +1,10 @@
+pynav.batch.MeasurementResidual
+===============================
+
+.. currentmodule:: pynav.batch
+
+.. autoclass:: MeasurementResidual
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

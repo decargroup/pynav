@@ -1,0 +1,10 @@
+pynav.batch.BatchEstimator
+==========================
+
+.. currentmodule:: pynav.batch
+
+.. autoclass:: BatchEstimator
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

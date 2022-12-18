@@ -1,0 +1,6 @@
+pynav.filters.check\_outlier
+============================
+
+.. currentmodule:: pynav.filters
+
+.. autofunction:: check_outlier

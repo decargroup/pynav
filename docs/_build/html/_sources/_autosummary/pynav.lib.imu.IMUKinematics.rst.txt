@@ -1,0 +1,10 @@
+﻿pynav.lib.imu.IMUKinematics
+===========================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autoclass:: IMUKinematics
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

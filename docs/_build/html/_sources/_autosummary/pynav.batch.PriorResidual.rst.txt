@@ -1,0 +1,10 @@
+pynav.batch.PriorResidual
+=========================
+
+.. currentmodule:: pynav.batch
+
+.. autoclass:: PriorResidual
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

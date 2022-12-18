@@ -1,0 +1,10 @@
+﻿pynav.lib.models.RangePointToAnchor
+===================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: RangePointToAnchor
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

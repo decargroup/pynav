@@ -1,0 +1,10 @@
+﻿pynav.lib.models.CompositeMeasurementModel
+==========================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: CompositeMeasurementModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

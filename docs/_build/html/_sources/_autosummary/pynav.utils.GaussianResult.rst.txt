@@ -1,0 +1,10 @@
+pynav.utils.GaussianResult
+==========================
+
+.. currentmodule:: pynav.utils
+
+.. autoclass:: GaussianResult
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

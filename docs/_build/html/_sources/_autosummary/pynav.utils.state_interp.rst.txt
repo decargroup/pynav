@@ -1,0 +1,6 @@
+pynav.utils.state\_interp
+=========================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: state_interp

@@ -1,0 +1,45 @@
+pynav.imm
+=========
+
+.. automodule:: pynav.imm
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                          
+   
+      gaussian_mixing
+      gaussian_mixing_vectorspace
+      reparametrize_gaussians_about_X_par
+      run_interacting_multiple_model_filter
+      update_X
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                          
+      :template: custom-class-template.rst               
+   
+      IMMResult
+      IMMResultList
+      IMMState
+      InteractingModelFilter
+   
+   
+
+   
+   
+   
+
+
+

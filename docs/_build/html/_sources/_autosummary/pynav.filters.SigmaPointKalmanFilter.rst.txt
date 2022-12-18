@@ -1,0 +1,10 @@
+﻿pynav.filters.SigmaPointKalmanFilter
+====================================
+
+.. currentmodule:: pynav.filters
+
+.. autoclass:: SigmaPointKalmanFilter
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

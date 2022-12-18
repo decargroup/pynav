@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.PreintegratedIMUKinematics
+===================================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: PreintegratedIMUKinematics
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

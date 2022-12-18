@@ -1,0 +1,20 @@
+﻿pynav
+=====
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst                
+   :recursive:
+
+   pynav.batch
+   pynav.datagen
+   pynav.filters
+   pynav.imm
+   pynav.lib
+   pynav.types
+   pynav.utils
+

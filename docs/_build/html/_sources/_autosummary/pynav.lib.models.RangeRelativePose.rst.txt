@@ -1,0 +1,10 @@
+﻿pynav.lib.models.RangeRelativePose
+==================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: RangeRelativePose
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

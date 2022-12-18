@@ -1,0 +1,6 @@
+pynav.filters.run\_filter
+=========================
+
+.. currentmodule:: pynav.filters
+
+.. autofunction:: run_filter

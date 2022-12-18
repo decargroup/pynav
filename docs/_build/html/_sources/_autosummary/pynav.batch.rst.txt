@@ -1,0 +1,34 @@
+pynav.batch
+===========
+
+.. automodule:: pynav.batch
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                          
+      :template: custom-class-template.rst               
+   
+      BatchEstimator
+      MeasurementResidual
+      PriorResidual
+      ProcessResidual
+   
+   
+
+   
+   
+   
+
+
+

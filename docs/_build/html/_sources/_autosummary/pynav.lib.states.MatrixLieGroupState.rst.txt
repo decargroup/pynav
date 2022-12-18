@@ -1,0 +1,10 @@
+﻿pynav.lib.states.MatrixLieGroupState
+====================================
+
+.. currentmodule:: pynav.lib.states
+
+.. autoclass:: MatrixLieGroupState
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

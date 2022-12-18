@@ -1,0 +1,10 @@
+﻿pynav.types.MeasurementModel
+============================
+
+.. currentmodule:: pynav.types
+
+.. autoclass:: MeasurementModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

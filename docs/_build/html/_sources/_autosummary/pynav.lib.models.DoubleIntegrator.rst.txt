@@ -1,0 +1,10 @@
+﻿pynav.lib.models.DoubleIntegrator
+=================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: DoubleIntegrator
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

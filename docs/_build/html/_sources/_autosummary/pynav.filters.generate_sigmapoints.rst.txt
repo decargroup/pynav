@@ -1,0 +1,6 @@
+pynav.filters.generate\_sigmapoints
+===================================
+
+.. currentmodule:: pynav.filters
+
+.. autofunction:: generate_sigmapoints

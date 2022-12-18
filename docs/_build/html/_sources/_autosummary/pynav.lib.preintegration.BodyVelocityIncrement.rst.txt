@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.BodyVelocityIncrement
+==============================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: BodyVelocityIncrement
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

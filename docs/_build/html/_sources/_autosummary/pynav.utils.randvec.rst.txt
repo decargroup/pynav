@@ -1,0 +1,6 @@
+pynav.utils.randvec
+===================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: randvec

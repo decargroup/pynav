@@ -1,0 +1,10 @@
+﻿pynav.lib.models.DoubleIntegratorWithBias
+=========================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: DoubleIntegratorWithBias
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

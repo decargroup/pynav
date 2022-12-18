@@ -1,0 +1,10 @@
+﻿pynav.lib.states.SO2State
+=========================
+
+.. currentmodule:: pynav.lib.states
+
+.. autoclass:: SO2State
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

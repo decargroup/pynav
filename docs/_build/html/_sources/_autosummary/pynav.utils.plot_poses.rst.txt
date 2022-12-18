@@ -1,0 +1,6 @@
+pynav.utils.plot\_poses
+=======================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: plot_poses

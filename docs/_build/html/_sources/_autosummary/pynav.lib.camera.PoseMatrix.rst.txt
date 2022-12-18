@@ -1,0 +1,10 @@
+﻿pynav.lib.camera.PoseMatrix
+===========================
+
+.. currentmodule:: pynav.lib.camera
+
+.. autoclass:: PoseMatrix
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

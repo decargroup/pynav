@@ -1,0 +1,6 @@
+pynav.datagen.generate\_measurement
+===================================
+
+.. currentmodule:: pynav.datagen
+
+.. autofunction:: generate_measurement

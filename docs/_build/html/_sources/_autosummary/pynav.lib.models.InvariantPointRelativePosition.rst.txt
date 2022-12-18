@@ -1,0 +1,10 @@
+﻿pynav.lib.models.InvariantPointRelativePosition
+===============================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: InvariantPointRelativePosition
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

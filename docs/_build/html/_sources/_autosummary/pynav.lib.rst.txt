@@ -1,0 +1,36 @@
+pynav.lib
+=========
+
+.. automodule:: pynav.lib
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst                
+   :recursive:
+
+   pynav.lib.camera
+   pynav.lib.imu
+   pynav.lib.models
+   pynav.lib.preintegration
+   pynav.lib.states
+

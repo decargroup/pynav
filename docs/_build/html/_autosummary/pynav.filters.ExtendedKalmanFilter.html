@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pynav.filters.ExtendedKalmanFilter &#8212; pynav 0.1.0 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pynav.filters.IteratedKalmanFilter" href="pynav.filters.IteratedKalmanFilter.html" />
+    <link rel="prev" title="pynav.filters.run_filter" href="pynav.filters.run_filter.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">pynav</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Home
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="pynav.html">
+  pynav
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="pynav.batch.html">
+   pynav.batch
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.batch.BatchEstimator.html">
+     pynav.batch.BatchEstimator
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.batch.MeasurementResidual.html">
+     pynav.batch.MeasurementResidual
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.batch.PriorResidual.html">
+     pynav.batch.PriorResidual
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.batch.ProcessResidual.html">
+     pynav.batch.ProcessResidual
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="pynav.datagen.html">
+   pynav.datagen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.datagen.generate_measurement.html">
+     pynav.datagen.generate_measurement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.datagen.DataGenerator.html">
+     pynav.datagen.DataGenerator
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="pynav.filters.html">
+   pynav.filters
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.filters.check_outlier.html">
+     pynav.filters.check_outlier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.filters.generate_sigmapoints.html">
+     pynav.filters.generate_sigmapoints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.filters.mean_state.html">
+     pynav.filters.mean_state
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.filters.run_filter.html">
+     pynav.filters.run_filter
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     pynav.filters.ExtendedKalmanFilter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.filters.IteratedKalmanFilter.html">
+     pynav.filters.IteratedKalmanFilter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.filters.SigmaPointKalmanFilter.html">
+     pynav.filters.SigmaPointKalmanFilter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="pynav.imm.html">
+   pynav.imm
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.gaussian_mixing.html">
+     pynav.imm.gaussian_mixing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.gaussian_mixing_vectorspace.html">
+     pynav.imm.gaussian_mixing_vectorspace
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.reparametrize_gaussians_about_X_par.html">
+     pynav.imm.reparametrize_gaussians_about_X_par
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.run_interacting_multiple_model_filter.html">
+     pynav.imm.run_interacting_multiple_model_filter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.update_X.html">
+     pynav.imm.update_X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.IMMResult.html">
+     pynav.imm.IMMResult
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.IMMResultList.html">
+     pynav.imm.IMMResultList
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.IMMState.html">
+     pynav.imm.IMMState
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.imm.InteractingModelFilter.html">
+     pynav.imm.InteractingModelFilter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="pynav.lib.html">
+   pynav.lib
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="pynav.lib.camera.html">
+     pynav.lib.camera
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.camera.Camera.html">
+       pynav.lib.camera.Camera
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.camera.PoseMatrix.html">
+       pynav.lib.camera.PoseMatrix
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="pynav.lib.imu.html">
+     pynav.lib.imu
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.G_matrix.html">
+       pynav.lib.imu.G_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.G_matrix_inv.html">
+       pynav.lib.imu.G_matrix_inv
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.L_matrix.html">
+       pynav.lib.imu.L_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.M_matrix.html">
+       pynav.lib.imu.M_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.N_matrix.html">
+       pynav.lib.imu.N_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.U_matrix.html">
+       pynav.lib.imu.U_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.U_matrix_inv.html">
+       pynav.lib.imu.U_matrix_inv
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.U_tilde_matrix.html">
+       pynav.lib.imu.U_tilde_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.adjoint_IE3.html">
+       pynav.lib.imu.adjoint_IE3
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.delta_matrix.html">
+       pynav.lib.imu.delta_matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.get_unbiased_imu.html">
+       pynav.lib.imu.get_unbiased_imu
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.inverse_IE3.html">
+       pynav.lib.imu.inverse_IE3
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.IMU.html">
+       pynav.lib.imu.IMU
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.IMUKinematics.html">
+       pynav.lib.imu.IMUKinematics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.imu.IMUState.html">
+       pynav.lib.imu.IMUState
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="pynav.lib.models.html">
+     pynav.lib.models
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.Altitude.html">
+       pynav.lib.models.Altitude
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.BodyFrameVelocity.html">
+       pynav.lib.models.BodyFrameVelocity
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.CompositeInput.html">
+       pynav.lib.models.CompositeInput
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.CompositeMeasurementModel.html">
+       pynav.lib.models.CompositeMeasurementModel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.CompositeProcessModel.html">
+       pynav.lib.models.CompositeProcessModel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.DoubleIntegrator.html">
+       pynav.lib.models.DoubleIntegrator
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.DoubleIntegratorWithBias.html">
+       pynav.lib.models.DoubleIntegratorWithBias
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.GlobalPosition.html">
+       pynav.lib.models.GlobalPosition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.Gravitometer.html">
+       pynav.lib.models.Gravitometer
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.InvariantMeasurement.html">
+       pynav.lib.models.InvariantMeasurement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.InvariantPointRelativePosition.html">
+       pynav.lib.models.InvariantPointRelativePosition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.LinearMeasurement.html">
+       pynav.lib.models.LinearMeasurement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.Magnetometer.html">
+       pynav.lib.models.Magnetometer
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.OneDimensionalPositionVelocityRange.html">
+       pynav.lib.models.OneDimensionalPositionVelocityRange
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.PointRelativePosition.html">
+       pynav.lib.models.PointRelativePosition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.RangePointToAnchor.html">
+       pynav.lib.models.RangePointToAnchor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.RangePoseToAnchor.html">
+       pynav.lib.models.RangePoseToAnchor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.RangePoseToPose.html">
+       pynav.lib.models.RangePoseToPose
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.RangeRelativePose.html">
+       pynav.lib.models.RangeRelativePose
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.RelativeBodyFrameVelocity.html">
+       pynav.lib.models.RelativeBodyFrameVelocity
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.models.SingleIntegrator.html">
+       pynav.lib.models.SingleIntegrator
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="pynav.lib.preintegration.html">
+     pynav.lib.preintegration
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.AngularVelocityIncrement.html">
+       pynav.lib.preintegration.AngularVelocityIncrement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.BodyVelocityIncrement.html">
+       pynav.lib.preintegration.BodyVelocityIncrement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.IMUIncrement.html">
+       pynav.lib.preintegration.IMUIncrement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.LinearIncrement.html">
+       pynav.lib.preintegration.LinearIncrement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.PreintegratedAngularVelocity.html">
+       pynav.lib.preintegration.PreintegratedAngularVelocity
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.PreintegratedBodyVelocity.html">
+       pynav.lib.preintegration.PreintegratedBodyVelocity
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.PreintegratedIMUKinematics.html">
+       pynav.lib.preintegration.PreintegratedIMUKinematics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.PreintegratedLinearModel.html">
+       pynav.lib.preintegration.PreintegratedLinearModel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.PreintegratedWheelOdometry.html">
+       pynav.lib.preintegration.PreintegratedWheelOdometry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.RelativeMotionIncrement.html">
+       pynav.lib.preintegration.RelativeMotionIncrement
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.preintegration.WheelOdometryIncrement.html">
+       pynav.lib.preintegration.WheelOdometryIncrement
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="pynav.lib.states.html">
+     pynav.lib.states
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.CompositeState.html">
+       pynav.lib.states.CompositeState
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.MatrixLieGroupState.html">
+       pynav.lib.states.MatrixLieGroupState
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.SE23State.html">
+       pynav.lib.states.SE23State
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.SE2State.html">
+       pynav.lib.states.SE2State
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.SE3State.html">
+       pynav.lib.states.SE3State
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.SL3State.html">
+       pynav.lib.states.SL3State
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.SO2State.html">
+       pynav.lib.states.SO2State
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.SO3State.html">
+       pynav.lib.states.SO3State
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="pynav.lib.states.VectorState.html">
+       pynav.lib.states.VectorState
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="pynav.types.html">
+   pynav.types
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.Input.html">
+     pynav.types.Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.Measurement.html">
+     pynav.types.Measurement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.MeasurementModel.html">
+     pynav.types.MeasurementModel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.ProcessModel.html">
+     pynav.types.ProcessModel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.StampedValue.html">
+     pynav.types.StampedValue
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.State.html">
+     pynav.types.State
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.types.StateWithCovariance.html">
+     pynav.types.StateWithCovariance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="pynav.utils.html">
+   pynav.utils
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.associate_stamps.html">
+     pynav.utils.associate_stamps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.find_nearest_stamp_idx.html">
+     pynav.utils.find_nearest_stamp_idx
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.jacobian.html">
+     pynav.utils.jacobian
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.monte_carlo.html">
+     pynav.utils.monte_carlo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.plot_error.html">
+     pynav.utils.plot_error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.plot_meas.html">
+     pynav.utils.plot_meas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.plot_poses.html">
+     pynav.utils.plot_poses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.randvec.html">
+     pynav.utils.randvec
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.set_axes_equal.html">
+     pynav.utils.set_axes_equal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.state_interp.html">
+     pynav.utils.state_interp
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.van_loans.html">
+     pynav.utils.van_loans
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.GaussianResult.html">
+     pynav.utils.GaussianResult
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.GaussianResultList.html">
+     pynav.utils.GaussianResultList
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pynav.utils.MonteCarloResult.html">
+     pynav.utils.MonteCarloResult
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="pynav-filters-extendedkalmanfilter">
+<h1>pynav.filters.ExtendedKalmanFilter<a class="headerlink" href="#pynav-filters-extendedkalmanfilter" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pynav.filters.ExtendedKalmanFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynav.filters.</span></span><span class="sig-name descname"><span class="pre">ExtendedKalmanFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pynav.types.ProcessModel.html#pynav.types.ProcessModel" title="pynav.types.ProcessModel"><span class="pre">pynav.types.ProcessModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reject_outliers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynav.filters.ExtendedKalmanFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>On-manifold nonlinear Kalman filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>process_model</strong> (<a class="reference internal" href="pynav.types.ProcessModel.html#pynav.types.ProcessModel" title="pynav.types.ProcessModel"><em>ProcessModel</em></a>) – process model to be used in the prediction step</p></li>
+<li><p><strong>reject_outliers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em>, </em><em>optional</em>) – whether to apply the NIS test to measurements, by default False</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynav.filters.ExtendedKalmanFilter.process_model">
+<span class="sig-name descname"><span class="pre">process_model</span></span><a class="headerlink" href="#pynav.filters.ExtendedKalmanFilter.process_model" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynav.filters.ExtendedKalmanFilter.reject_outliers">
+<span class="sig-name descname"><span class="pre">reject_outliers</span></span><a class="headerlink" href="#pynav.filters.ExtendedKalmanFilter.reject_outliers" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynav.filters.ExtendedKalmanFilter.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance"><span class="pre">pynav.types.StateWithCovariance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pynav.types.Input.html#pynav.types.Input" title="pynav.types.Input"><span class="pre">pynav.types.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_jac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pynav.types.State.html#pynav.types.State" title="pynav.types.State"><span class="pre">pynav.types.State</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance"><span class="pre">pynav.types.StateWithCovariance</span></a></span></span><a class="headerlink" href="#pynav.filters.ExtendedKalmanFilter.predict" title="Permalink to this definition">#</a></dt>
+<dd><p>Propagates the state forward in time using a process model. The user
+must provide the current state, input, and time interval</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the time interval <cite>dt</cite> is not provided in the arguments, it will
+be taken as the difference between the input stamp and the state stamp.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance"><em>StateWithCovariance</em></a>) – The current state estimate.</p></li>
+<li><p><strong>u</strong> (<a class="reference internal" href="pynav.types.Input.html#pynav.types.Input" title="pynav.types.Input"><em>Input</em></a>) – Input measurement to be given to process model</p></li>
+<li><p><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Duration to next time step. If not provided, dt will be calculated
+with <cite>dt = u.stamp - x.state.stamp</cite>.</p></li>
+<li><p><strong>x_jac</strong> (<a class="reference internal" href="pynav.types.State.html#pynav.types.State" title="pynav.types.State"><em>State</em></a><em>, </em><em>optional</em>) – Evaluation point for the process model Jacobian. If not provided, the
+current state estimate will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New predicted state</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance">StateWithCovariance</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynav.filters.ExtendedKalmanFilter.correct">
+<span class="sig-name descname"><span class="pre">correct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance"><span class="pre">pynav.types.StateWithCovariance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pynav.types.Measurement.html#pynav.types.Measurement" title="pynav.types.Measurement"><span class="pre">pynav.types.Measurement</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pynav.types.Input.html#pynav.types.Input" title="pynav.types.Input"><span class="pre">pynav.types.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_jac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pynav.types.State.html#pynav.types.State" title="pynav.types.State"><span class="pre">pynav.types.State</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reject_outlier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance"><span class="pre">pynav.types.StateWithCovariance</span></a></span></span><a class="headerlink" href="#pynav.filters.ExtendedKalmanFilter.correct" title="Permalink to this definition">#</a></dt>
+<dd><p>Fuses an arbitrary measurement to produce a corrected state estimate.
+If a measurement model returns <cite>None</cite> from its <cite>evaluate()</cite> method,
+the measurement will not be fused.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance"><em>StateWithCovariance</em></a>) – The current state estimate.</p></li>
+<li><p><strong>u</strong> (<a class="reference internal" href="pynav.types.Input.html#pynav.types.Input" title="pynav.types.Input"><em>Input</em></a>) – Most recent input, to be used to predict the state forward
+if the measurement stamp is larger than the state stamp.</p></li>
+<li><p><strong>y</strong> (<a class="reference internal" href="pynav.types.Measurement.html#pynav.types.Measurement" title="pynav.types.Measurement"><em>Measurement</em></a>) – Measurement to be fused into the current state estimate.</p></li>
+<li><p><strong>x_jac</strong> (<a class="reference internal" href="pynav.types.State.html#pynav.types.State" title="pynav.types.State"><em>State</em></a><em>, </em><em>optional</em>) – valuation point for the process model Jacobian. If not provided, the
+current state estimate will be used.</p></li>
+<li><p><strong>reject_outlier</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to apply the NIS test to this measurement, by default None,
+in which case the value of <cite>self.reject_outliers</cite> will be used.</p></li>
+<li><p><strong>output_details</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em>, </em><em>optional</em>) – <dl class="simple">
+<dt>Whether to output intermediate computation results (innovation, innovation covariance)</dt><dd><p>in an additional returned dict.</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The corrected state estimate</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pynav.types.StateWithCovariance.html#pynav.types.StateWithCovariance" title="pynav.types.StateWithCovariance">StateWithCovariance</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="pynav.filters.run_filter.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">pynav.filters.run_filter</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="pynav.filters.IteratedKalmanFilter.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pynav.filters.IteratedKalmanFilter</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Charles C. Cossette.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

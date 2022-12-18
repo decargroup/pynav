@@ -1,0 +1,10 @@
+﻿pynav.types.StampedValue
+========================
+
+.. currentmodule:: pynav.types
+
+.. autoclass:: StampedValue
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

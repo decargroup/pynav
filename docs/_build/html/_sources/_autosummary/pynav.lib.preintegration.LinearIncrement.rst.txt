@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.LinearIncrement
+========================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: LinearIncrement
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

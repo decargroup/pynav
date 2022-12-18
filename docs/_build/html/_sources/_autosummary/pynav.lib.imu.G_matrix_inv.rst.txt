@@ -1,0 +1,6 @@
+pynav.lib.imu.G\_matrix\_inv
+============================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autofunction:: G_matrix_inv

@@ -1,0 +1,6 @@
+pynav.utils.find\_nearest\_stamp\_idx
+=====================================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: find_nearest_stamp_idx

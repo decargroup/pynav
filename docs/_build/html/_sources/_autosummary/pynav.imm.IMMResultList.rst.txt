@@ -1,0 +1,10 @@
+﻿pynav.imm.IMMResultList
+=======================
+
+.. currentmodule:: pynav.imm
+
+.. autoclass:: IMMResultList
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

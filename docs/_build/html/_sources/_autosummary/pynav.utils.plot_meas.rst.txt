@@ -1,0 +1,6 @@
+pynav.utils.plot\_meas
+======================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: plot_meas

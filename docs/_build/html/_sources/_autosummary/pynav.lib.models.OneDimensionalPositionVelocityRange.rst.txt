@@ -1,0 +1,10 @@
+﻿pynav.lib.models.OneDimensionalPositionVelocityRange
+====================================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: OneDimensionalPositionVelocityRange
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

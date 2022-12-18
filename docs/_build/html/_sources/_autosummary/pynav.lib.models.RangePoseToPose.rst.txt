@@ -1,0 +1,10 @@
+﻿pynav.lib.models.RangePoseToPose
+================================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: RangePoseToPose
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

@@ -1,0 +1,6 @@
+pynav.lib.imu.U\_matrix
+=======================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autofunction:: U_matrix

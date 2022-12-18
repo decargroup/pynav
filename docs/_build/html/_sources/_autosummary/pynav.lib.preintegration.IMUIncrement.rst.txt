@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.IMUIncrement
+=====================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: IMUIncrement
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

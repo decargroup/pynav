@@ -1,0 +1,10 @@
+﻿pynav.lib.models.GlobalPosition
+===============================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: GlobalPosition
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

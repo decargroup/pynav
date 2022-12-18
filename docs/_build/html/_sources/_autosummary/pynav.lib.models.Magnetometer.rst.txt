@@ -1,0 +1,10 @@
+﻿pynav.lib.models.Magnetometer
+=============================
+
+.. currentmodule:: pynav.lib.models
+
+.. autoclass:: Magnetometer
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

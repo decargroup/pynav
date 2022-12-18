@@ -1,0 +1,6 @@
+pynav.utils.van\_loans
+======================
+
+.. currentmodule:: pynav.utils
+
+.. autofunction:: van_loans

@@ -1,0 +1,6 @@
+pynav.imm.update\_X
+===================
+
+.. currentmodule:: pynav.imm
+
+.. autofunction:: update_X

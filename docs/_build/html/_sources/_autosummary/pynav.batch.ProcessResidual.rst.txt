@@ -1,0 +1,10 @@
+pynav.batch.ProcessResidual
+===========================
+
+.. currentmodule:: pynav.batch
+
+.. autoclass:: ProcessResidual
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

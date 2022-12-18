@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.PreintegratedLinearModel
+=================================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: PreintegratedLinearModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

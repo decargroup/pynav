@@ -1,0 +1,6 @@
+pynav.imm.reparametrize\_gaussians\_about\_X\_par
+=================================================
+
+.. currentmodule:: pynav.imm
+
+.. autofunction:: reparametrize_gaussians_about_X_par

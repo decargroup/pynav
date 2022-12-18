@@ -1,0 +1,6 @@
+pynav.lib.imu.inverse\_IE3
+==========================
+
+.. currentmodule:: pynav.lib.imu
+
+.. autofunction:: inverse_IE3

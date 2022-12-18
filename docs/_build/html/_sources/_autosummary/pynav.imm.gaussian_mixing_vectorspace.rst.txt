@@ -1,0 +1,6 @@
+pynav.imm.gaussian\_mixing\_vectorspace
+=======================================
+
+.. currentmodule:: pynav.imm
+
+.. autofunction:: gaussian_mixing_vectorspace

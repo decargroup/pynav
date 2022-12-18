@@ -1,0 +1,10 @@
+﻿pynav.lib.preintegration.AngularVelocityIncrement
+=================================================
+
+.. currentmodule:: pynav.lib.preintegration
+
+.. autoclass:: AngularVelocityIncrement
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

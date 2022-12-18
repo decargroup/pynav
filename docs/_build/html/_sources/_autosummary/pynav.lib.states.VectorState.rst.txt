@@ -1,0 +1,10 @@
+﻿pynav.lib.states.VectorState
+============================
+
+.. currentmodule:: pynav.lib.states
+
+.. autoclass:: VectorState
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          

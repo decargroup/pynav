@@ -1,0 +1,10 @@
+﻿pynav.datagen.DataGenerator
+===========================
+
+.. currentmodule:: pynav.datagen
+
+.. autoclass:: DataGenerator
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:
+   :undoc-members:                          
